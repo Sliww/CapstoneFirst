@@ -1,0 +1,21 @@
+.menuLinks {
+    list-style: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.menuLinks li {
+    color: white;
+    text-decoration: none;
+}
+
+.menuLinks a {
+    color: white;
+    text-decoration: none;
+}
+
+.menuLinks li:hover {
+    color: #f9d689;
+    text-decoration: overline;
+}
+

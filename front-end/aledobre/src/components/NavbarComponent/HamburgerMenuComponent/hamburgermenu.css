@@ -1,0 +1,62 @@
+.buttonMenuBurger{
+    background-color: transparent;
+    border: none;
+}
+
+.threeLines {
+    width: 3rem;
+    height: 3rem;
+}
+
+.offColorBackground {
+    background-color: white;
+}
+
+
+
+.menuLinksOffcanvas {
+    list-style: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+}
+
+.menuLinksOffcanvas li {
+    color: inherit;
+    text-decoration: none;
+}
+
+.menuLinksOffcanvas a {
+    color: inherit;
+    text-decoration: none;
+}
+.menuLinksOffcanvas li:hover {
+    color: #973131;
+    text-decoration: overline;
+}
+
+.headerText {
+    color: #973131;
+}
+
+.disabled-link {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.disabled-link a {
+    pointer-events: none;
+}
+
+.offcanvas-close-button {
+    color: #973131;
+}
+
+.offcanvas-close-button:hover {
+    color: #7a2525;
+}
+
+.icon-small {
+    width: 70px;
+    height: 40px;
+}

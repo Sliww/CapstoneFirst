@@ -1,0 +1,27 @@
+.loginSignUp {
+    list-style: none;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.login {
+    font-weight: bold;
+}
+
+.loginSignUp a {
+    color: white;
+    text-decoration: none;
+}
+
+.loginSignUp a:hover {
+    color: #f9d689;
+    text-decoration: none;
+}
+
+.loginSignUp .login:hover {
+    text-decoration: overline;
+}
+
+.loginSignUp .signUp:hover {
+    text-decoration: overline;
+}
