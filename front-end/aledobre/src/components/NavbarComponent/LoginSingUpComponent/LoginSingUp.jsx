@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const LoginSingUp = () => {
     return (
-        <span className='loginSignUp d-flex gap-2'>
+        <span className='loginSignUp d-flex gap-3'>
             <Link className='login' to='/login'>
                 Login
             </Link>

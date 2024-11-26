@@ -18,7 +18,7 @@ export const Navbar = () => {
                     </Col>
                 </Col>
                 <Col className='d-flex justify-content-end align-items-center gap-5'>
-                    <div className='d-none d-md-flex'>
+                    <div className='d-none d-md-flex '>
                         <LoginSingUp />
                     </div>
                     <HamburgerMenu />
