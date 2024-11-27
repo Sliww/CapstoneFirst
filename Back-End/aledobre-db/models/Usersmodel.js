@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -58,32 +59,37 @@ const UserSchema = new mongoose.Schema({
         required: false,
     },
 
-    region: {
-        type: String,
-        required: true,
+    isLazioResident: {
+        type: Boolean,
+        required: true
     },
 
     role: {
         type: String,
         enum: ['user', 'admin'],
         default: 'user',
-    }
+    },
+
+    bookings: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Booking'
+    }]
 },
-{
-    timestamps: true,
-    strict: true
-});
+    {
+        timestamps: true,
+        strict: true
+    });
 
 UserSchema.pre("save", async function (next) {
     const user = this;
     if (!user.isModified("password")) return next();
     try {
-      const salt = await bcrypt.genSalt(10);
-      user.password = await bcrypt.hash(user.password, salt);
-      next();
+        const salt = await bcrypt.genSalt(10);
+        user.password = await bcrypt.hash(user.password, salt);
+        next();
     } catch (error) {
-      next(error);
+        next(error);
     }
-  });
+});
 
 module.exports = mongoose.model('UserModel', UserSchema, 'users');
