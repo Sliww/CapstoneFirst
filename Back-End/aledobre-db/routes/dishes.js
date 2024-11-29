@@ -1,9 +1,10 @@
 const express = require('express');
 const dishes = express.Router();
+const manageErrorMessage = require('../utilities/catchErrorsMessage');
 const DishModel = require('../models/Dishmodel');
 
 // GET ALL DISHES
-dishes.get("/dishes", async (req, res) => {
+dishes.get("/dishes", async (req, res, next) => {
     try {
         const allDishes = await DishModel.find();
 
@@ -24,17 +25,12 @@ dishes.get("/dishes", async (req, res) => {
                 allDishes
             });
     } catch (error) {
-        res
-            .status(500)
-            .json({
-                statusCode: 500,
-                message: 'Opss...something went wrong'
-            });
+        next(error);
     }
 });
 
 // CREATE DISH
-dishes.post("/dishes/create", async (req, res) => {
+dishes.post("/dishes/create", async (req, res, next) => {
     try {
         const newDish = new DishModel(req.body);
         const savedDish = await newDish.save();
@@ -44,12 +40,10 @@ dishes.post("/dishes/create", async (req, res) => {
             dish: savedDish
         });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({
-            statusCode: 500,
-            message: 'Opss...something went wrong'
-        });
+        next(error);
     }
 });
+
+dishes.use(manageErrorMessage);
 
 module.exports = dishes;
