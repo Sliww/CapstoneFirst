@@ -6,11 +6,11 @@ const DishSchema = new mongoose.Schema({
         required: [true, 'Il nome del piatto è obbligatorio.'],
     },
     ingredients: {
-        type: [String],
+        type: String,
         required: [true, 'Gli ingredienti sono obbligatori.'],
     },
     allergens: {
-        type: [String],
+        type: String,
         required: [true, 'Gli allergeni sono obbligatori.'],
     },
     img: {

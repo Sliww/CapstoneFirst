@@ -11,7 +11,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mantine/carousel": "^7.14.3",
     "bootstrap": "^5.3.3",
+    "embla": "^1.0.0",
+    "embla-carousel-react": "^7.1.0",
     "ionicons": "^7.4.0",
     "jwt-decode": "^4.0.0",
     "react": "^18.3.1",

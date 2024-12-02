@@ -8,7 +8,7 @@ const dishesRoute = require('./routes/dishes');
 
 //Import MIDDLEWARE
 const requestTimeMiddleware = require('./middleware/requestTime');
-
+const manageErrorMessage = require('./utilities/catchErrorsMessage'); 
 
 
 const PORT = 4012;
@@ -18,10 +18,12 @@ const server = express();
 server.use(express.json());
 
 // USE MIDDLEWARE
-server.use(requestTimeMiddleware);
+//server.use(requestTimeMiddleware);
 
 server.use('/', usersRoute);
 server.use('/', dishesRoute);
+
+//server.use(manageErrorMessage);
 
 initDB();
 

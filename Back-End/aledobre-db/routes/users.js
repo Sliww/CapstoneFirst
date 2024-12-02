@@ -33,7 +33,7 @@ users.get("/users", async (req, res, next) => {
 users.get('/user/:id', async (req, res, next) => {
     const { id } = req.params;
     try {
-        const user = await UserModel.findById(id).populate('bookings');
+        const user = await UserModel.findById(id);
         
         if (!user) {
             return res.status(404).json({
