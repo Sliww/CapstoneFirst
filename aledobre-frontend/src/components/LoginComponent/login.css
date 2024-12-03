@@ -1,7 +1,7 @@
 .personalBorder {
     background-color: #973131;
     border-radius: 30px;
-    width: 350px;
+    width: 300px;
     box-shadow: 0 0 30px #ee2c2c, 0 0 30px #de2626;
 }
 
@@ -18,3 +18,9 @@
     color: white !important;
     text-decoration: underline !important;
 }
+
+.logopierogi img{
+    width: 150px;
+    height: 150px;
+}   
+
