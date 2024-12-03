@@ -1,6 +1,5 @@
 const express = require('express');
 const users = express.Router();
-const manageErrorMessage = require('../utilities/catchErrorsMessage');
 const UserModel = require('../models/Usersmodel');
 const bcrypt = require('bcrypt');
 
@@ -141,6 +140,5 @@ users.put('/user/update/:id', async (req, res, next) => {
     }
 });
 
-users.use(manageErrorMessage);
 
 module.exports = users;

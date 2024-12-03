@@ -4,7 +4,7 @@ import { useState } from 'react';
 import profilepic from '../../../../assets/profilepic.jpeg'
 
 export const MyProfile = () => {
-    // Stato per le informazioni del profilo
+    
     const [userProfile, setUserProfile] = useState({
         name: 'Nome',
         surname: 'Cognome',
@@ -12,10 +12,10 @@ export const MyProfile = () => {
         telephone: '1234567890',
         dob: '1990-01-01',
         isLazioResident: true,
-        password: 'password' // Non visualizzare la password in chiaro in un'app reale
+        password: 'password'
     });
 
-    // Funzione per gestire il cambiamento degli input
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUserProfile(prevState => ({
