@@ -1,0 +1,20 @@
+.personalBorder {
+    background-color: #973131;
+    border-radius: 30px;
+    width: 350px;
+    box-shadow: 0 0 30px #ee2c2c, 0 0 30px #de2626;
+}
+
+.swal2-popup {
+    border: 1px solid #973131 !important;
+    box-shadow: 0 0 15px #973131 !important;
+}
+
+.swal2-confirm {
+    box-shadow: 0 0 10px #973131 !important;
+}
+
+.personalBorder a:hover {
+    color: white !important;
+    text-decoration: underline !important;
+}

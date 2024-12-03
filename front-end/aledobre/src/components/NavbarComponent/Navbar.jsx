@@ -7,18 +7,18 @@ import { LoginSingUp } from './LoginSingUpComponent/LoginSingUp';
 
 export const Navbar = () => {
     return (
-        <Container fluid className='personal navbarBackground'>
+        <Container fluid className='personal navbarBackground fixed-top'>
             <Row className='p-2 align-items-center' style={{ flexWrap: 'nowrap' }}>
                 <Col className='d-flex align-items-center gap-4'>
                     <Col xs='auto' className='p-0'>
                         <Logo />
                     </Col>
-                    <Col xs='auto' className='p-0'>
+                    <Col xs='auto' className='p-0 d-lg-block'>
                         <LinksMenu />
                     </Col>
                 </Col>
                 <Col className='d-flex justify-content-end align-items-center gap-5'>
-                    <div className='d-none d-md-flex '>
+                    <div className='d-none d-lg-flex '>
                         <LoginSingUp />
                     </div>
                     <HamburgerMenu />

@@ -7,7 +7,7 @@ export const LinksMenu = () => {
             <Link to='/'>
                 <li>Home</li>
             </Link>
-            <div className="d-none d-md-flex gap-5">
+            <div className="d-none d-lg-flex gap-5">
                 <Link to='/prenota'>
                     <li>Prenota</li>
                 </Link>

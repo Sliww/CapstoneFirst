@@ -1,0 +1,33 @@
+.footer-background {
+    border-top: 1px solid #cdc6af;
+}
+
+.footer-list {
+    list-style: none;
+    color: #989383;
+    padding: 0;
+}
+
+.footer-list li a {
+    color: #989383;
+}
+
+.footer-list li a:hover {
+    color: #973131;
+}
+
+.footer-list li a img {
+    width: 20px;
+    height: 20px;
+}
+
+.social-icon img {
+    transition: filter 0.3s ease;
+}
+
+.social-icon:hover img {
+    filter: brightness(0) saturate(100%) invert(30%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+
+

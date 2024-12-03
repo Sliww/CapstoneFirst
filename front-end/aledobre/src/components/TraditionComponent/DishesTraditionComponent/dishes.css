@@ -1,0 +1,36 @@
+.background-tradition-2 {
+    background-color: #F2E8C6;
+}
+
+.imgDishes img {
+    border-radius: 25px;
+    height: auto;
+    transition: transform 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 576px) {
+    .imgDishes img {
+        max-width: 300px;
+    }
+}
+
+@media (min-width: 577px) {
+    .imgDishes img {
+        max-width: 400px;
+    }
+}
+
+.imgDishes img:hover {
+    transform: scale(1.05);
+}
+
+.text-description {
+    margin-top: 20px;
+}
+
+@media (max-width: 576px) {
+    .text-description h3 {
+        margin-bottom: 15px;
+    }
+}

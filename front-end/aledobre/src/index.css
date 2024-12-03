@@ -7,8 +7,13 @@
 }
 
 body {
-    background-color:#ffffff;
+    background-color:#F2E8C6;
+    padding-top: 60px;
     font-family: "Parkinsans", sans-serif;
+}
+
+body.login-page {
+    padding-top: 0;
 }
 
 
