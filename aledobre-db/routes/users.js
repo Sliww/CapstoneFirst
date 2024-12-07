@@ -2,6 +2,8 @@ const express = require('express');
 const users = express.Router();
 const UserModel = require('../models/Usersmodel');
 const bcrypt = require('bcrypt');
+const verifyToken = require('../middleware/verifyToken');
+
 
 // GET ALL USERS
 users.get("/users", async (req, res, next) => {
@@ -28,25 +30,26 @@ users.get("/users", async (req, res, next) => {
     }
 });
 
-// GET USER BY ID
-users.get('/user/:id', async (req, res, next) => {
-    const { id } = req.params;
+
+// GET LOGGED USER PROFILE
+users.get('/users/me', verifyToken, async (req, res) => {
     try {
-        const user = await UserModel.findById(id);
+        const user = await UserModel.findById(req.user.id).select('-password');
         
         if (!user) {
             return res.status(404).json({
-                statusCode: 404,
-                message: "User not found"
+                message: "Utente non trovato"
             });
         }
-        
+
         res.status(200).json({
-            statusCode: 200,
-            user
+            user: user
         });
     } catch (error) {
-        next(error);
+        res.status(500).json({
+            message: "Errore server",
+            error: error.message
+        });
     }
 });
 
@@ -139,6 +142,7 @@ users.put('/user/update/:id', async (req, res, next) => {
         next(error);
     }
 });
+
 
 
 module.exports = users;

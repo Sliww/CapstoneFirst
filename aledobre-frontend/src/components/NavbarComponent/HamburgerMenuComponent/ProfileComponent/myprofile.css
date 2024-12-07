@@ -1,4 +1,5 @@
 .my-profile-card {
+    background-color: #973131;
     margin-top: 20px;
     padding: 20px;
     text-align: center;
@@ -11,6 +12,7 @@
 .profile-image {
     width: 150px;
     height: 150px;
+    border: 2px solid #fff;
 }
 
 .profile-info {

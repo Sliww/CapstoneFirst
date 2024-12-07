@@ -8,6 +8,14 @@
     font-weight: bold;
 }
 
+.logout:hover {
+    text-decoration: overline;
+}
+
+.profile:hover {
+    text-decoration: overline !important;
+}
+
 .loginSignUp a {
     color: white;
     text-decoration: none;

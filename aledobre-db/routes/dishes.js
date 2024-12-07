@@ -2,7 +2,6 @@ const express = require('express');
 const dishes = express.Router();
 const DishModel = require('../models/Dishmodel');
 
-
 // GET ALL DISHES
 dishes.get("/dishes", async (req, res, next) => {
     try {

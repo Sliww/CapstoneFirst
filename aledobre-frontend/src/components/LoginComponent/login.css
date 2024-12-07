@@ -22,5 +22,40 @@
 .logopierogi img{
     width: 150px;
     height: 150px;
-}   
+}
+
+.btns-common {
+    background-color: #b03a3a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.btns-common:hover {
+    background-color: #F2E8C6;
+    color: #973131;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #b03a3a;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group-append {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.btn-eye {
+    border: none;
+    background: transparent;
+    color: #973131;
+}
 

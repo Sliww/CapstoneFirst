@@ -55,8 +55,7 @@ const UserSchema = new mongoose.Schema({
 
     isActive: {
         type: Boolean,
-        default: true,
-        required: false,
+        default: true
     },
 
     isLazioResident: {
@@ -69,11 +68,6 @@ const UserSchema = new mongoose.Schema({
         enum: ['user', 'admin'],
         default: 'user',
     }
-
-    //bookings: [{
-    //    type: mongoose.Schema.Types.ObjectId,
-    //    ref: 'Booking'
-    //}]
 },
     {
         timestamps: true,
