@@ -1,0 +1,76 @@
+.table {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.table thead {
+    background-color: #f8f9fa;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.user-table {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    min-width: 300px;
+}
+
+.user-table th, 
+.user-table td {
+    vertical-align: middle;
+    white-space: nowrap;
+    padding: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .btn-edit,
+    .btn-delete {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .user-table td {
+        padding: 0.5rem;
+    }
+}
+
+
+.user-table td:last-child {
+    min-width: 90px;
+}
+
+.admin-row td {
+    color: #198754 !important;
+    font-weight: 500;
+}
+
+.admin-row td:first-child::after {
+    content: ' (Admin)';
+    font-size: 0.75em;
+    color: #198754;
+    font-weight: normal;
+}
+
+.btn-saved {
+    background-color: transparent;
+    border: 1px solid #198754;
+    color: #198754;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.btn-saved:hover {
+    background-color: #198754;
+    color: #fff;
+    border: 1px solid #157347;
+}
+
+

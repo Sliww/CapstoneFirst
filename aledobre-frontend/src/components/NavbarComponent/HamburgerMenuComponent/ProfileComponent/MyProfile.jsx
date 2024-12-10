@@ -1,7 +1,6 @@
 import './myprofile.css';
-import { Container, Row, Col, Card, Image, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import profilepic from '../../../../assets/profilepic.jpeg'
 
 export const MyProfile = () => {
     
@@ -97,19 +96,13 @@ export const MyProfile = () => {
         <Container>
             <Row className="justify-content-center">
                 <Col xs={12} md={6}>
-                    <Card className="my-profile-card">
+                    <Card className="my-profile-card mt-5">
                         <Card.Body>
-                            <div className="profile-image-container">
-                                <Image 
-                                    src={profilepic}
-                                    roundedCircle 
-                                    className="profile-image" 
-                                    alt="ProfilePicture" 
-                                />
-                            </div>
+                            <h2 className="text-center text-white mb-4">Modifica Profilo</h2>
+                            
                             <div className="profile-info text-white">
                                 <Form onSubmit={handleSubmit}>
-                                    <Form.Group controlId="formName">
+                                    <Form.Group controlId="formName" className='pb-4'>
                                         <Form.Label>Nome</Form.Label>
                                         <Form.Control 
                                             type="text" 
@@ -118,7 +111,7 @@ export const MyProfile = () => {
                                             onChange={handleChange} 
                                         />
                                     </Form.Group>
-                                    <Form.Group controlId="formSurname">
+                                    <Form.Group controlId="formSurname" className='pb-4'>
                                         <Form.Label>Cognome</Form.Label>
                                         <Form.Control 
                                             type="text" 
@@ -127,7 +120,7 @@ export const MyProfile = () => {
                                             onChange={handleChange} 
                                         />
                                     </Form.Group>
-                                    <Form.Group controlId="formEmail">
+                                    <Form.Group controlId="formEmail" className='pb-4'>
                                         <Form.Label>Email</Form.Label>
                                         <Form.Control 
                                             type="email" 
@@ -136,7 +129,7 @@ export const MyProfile = () => {
                                             onChange={handleChange} 
                                         />
                                     </Form.Group>
-                                    <Form.Group controlId="formTelephone">
+                                    <Form.Group controlId="formTelephone" className='pb-4'>
                                         <Form.Label>Telefono</Form.Label>
                                         <Form.Control 
                                             type="text" 
@@ -145,7 +138,7 @@ export const MyProfile = () => {
                                             onChange={handleChange} 
                                         />
                                     </Form.Group>
-                                    <Form.Group controlId="formDob">
+                                    <Form.Group controlId="formDob" className='pb-4'>
                                         <Form.Label>Data di Nascita</Form.Label>
                                         <Form.Control 
                                             type="date" 
@@ -154,7 +147,7 @@ export const MyProfile = () => {
                                             onChange={handleChange} 
                                         />
                                     </Form.Group>
-                                    <Form.Group controlId="formIsLazioResident">
+                                    <Form.Group controlId="formIsLazioResident" className='pb-4'>
                                         <Form.Label>Residente nel Lazio</Form.Label>
                                         <Form.Check 
                                             type="checkbox" 
@@ -163,7 +156,7 @@ export const MyProfile = () => {
                                             onChange={e => handleChange({ target: { name: 'isLazioResident', value: e.target.checked } })} 
                                         />
                                     </Form.Group>
-                                    <Form.Group controlId="formPassword">
+                                    <Form.Group controlId="formPassword" className='pb-4'>
                                         <Form.Label>Password</Form.Label>
                                         <Form.Control 
                                             type="password" 

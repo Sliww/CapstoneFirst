@@ -10,13 +10,12 @@ const DishSchema = new mongoose.Schema({
         required: [true, 'Gli ingredienti sono obbligatori.'],
     },
     allergens: {
-        type: String,
+        type: [String],
         required: [true, 'Gli allergeni sono obbligatori.'],
     },
     img: {
         type: String,
-        required: false,
-        default: "https://placehold.co/600x400"
+        required: false
     },
     category: {
         type: String,

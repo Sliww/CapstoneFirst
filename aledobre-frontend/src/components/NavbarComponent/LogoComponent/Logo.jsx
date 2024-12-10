@@ -1,7 +1,10 @@
 import './logo.css'
+import logo from '../../../assets/aledobregiusto.png'
 
-export const Logo = ()=>{
+export const Logo = () => {
     return (
-            <h1 className='m-0 personal d-inline text-white'>Aledobre</h1>
+        <div className="logonavbar">
+            <img src={logo} alt="logo" />
+        </div>
     )
 }

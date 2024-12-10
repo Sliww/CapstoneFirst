@@ -1,6 +1,7 @@
 const express = require('express');
 const dishes = express.Router();
 const DishModel = require('../models/Dishmodel');
+const cloudStorage = require('../middleware/uploadOnCloudImg/cloudStorage')
 
 // GET ALL DISHES
 dishes.get("/dishes", async (req, res, next) => {
@@ -18,10 +19,15 @@ dishes.get("/dishes", async (req, res, next) => {
     }
 });
 
-// CREATE DISH
-dishes.post("/dishes/create", async (req, res, next) => {
+// CREATE DISH WITH IMAGE
+dishes.post("/dishes/create", cloudStorage.single('img'), async (req, res, next) => {
     try {
-        const newDish = new DishModel(req.body);
+        const dishData = req.body;
+        if (req.file) {
+            dishData.img = req.file.path;
+        }
+
+        const newDish = new DishModel(dishData);
         const savedDish = await newDish.save();
 
         res.status(201).send({
@@ -57,6 +63,41 @@ dishes.delete("/dishes/delete/:id", async (req, res, next) => {
     }
 });
 
+// PUT DISH
+dishes.put("/dishes/update/:id", cloudStorage.single('img'), async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const updateData = req.body;
+        
+        if (req.file) {
+            updateData.img = req.file.path;
+        }
 
+        if (typeof updateData.allergens === 'string') {
+            updateData.allergens = JSON.parse(updateData.allergens);
+        }
+
+        const updatedDish = await DishModel.findByIdAndUpdate(
+            id,
+            updateData,
+            { new: true }
+        );
+
+        if (!updatedDish) {
+            return res.status(404).json({
+                statusCode: 404,
+                message: "Piatto non trovato"
+            });
+        }
+
+        res.status(200).json({
+            statusCode: 200,
+            message: "Piatto aggiornato con successo",
+            updatedDish
+        });
+    } catch (error) {
+        next(error);
+    }
+});
 
 module.exports = dishes;

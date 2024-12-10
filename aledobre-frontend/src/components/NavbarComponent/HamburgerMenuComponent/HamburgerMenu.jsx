@@ -52,7 +52,7 @@ export const HamburgerMenu = () => {
                                 </Link>
                                 {isAdmin && (
                                     <Link to='/admin-panel' onClick={handleClose}>
-                                        <li>Pannello di gestione</li>
+                                        <li>Pannello di controllo</li>
                                     </Link>
                                 )}
                                 <li onClick={handleLogout} style={{ cursor: 'pointer' }}>

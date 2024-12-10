@@ -1,0 +1,36 @@
+.signup-form-container h2 {
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+.my-profile-card {
+    background-color: #973131;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-info {
+    text-align: left;
+}
+
+
+.invalid-feedback {
+    color: #ffd700;
+}
+
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.form-control:focus {
+    background-color: #ffffff;
+    border-color: #ffd700;
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+}

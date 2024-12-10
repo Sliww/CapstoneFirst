@@ -19,9 +19,9 @@
     text-decoration: underline !important;
 }
 
-.logopierogi img{
-    width: 150px;
-    height: 150px;
+.logoaledobre img{
+    width: 200px;
+    height: 200px;
 }
 
 .btns-common {
@@ -57,5 +57,9 @@
     border: none;
     background: transparent;
     color: #973131;
+}
+
+.logoaledobre {
+    margin-top: -50px;
 }
 

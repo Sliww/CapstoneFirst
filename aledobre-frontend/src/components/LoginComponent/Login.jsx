@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Container, Row, Col, Spinner } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import logopierogi from '../../assets/pierogilogo.png';
+import logo from '../../assets/aledobregiusto.png';
 import Swal from 'sweetalert2';
 
 export const Login = () => {
@@ -75,14 +75,14 @@ export const Login = () => {
         <Container className="vh-100">
             <Row className="h-100">
                 <Col className="h-100">
-                    <div className="h-100 d-flex flex-column align-items-center justify-content-start gap-4">
+                    <div className="h-100 d-flex flex-column align-items-center justify-content-start">
 
-                        <div className="logopierogi">
-                            <img src={logopierogi} alt="logo" />
+                        <div className="logoaledobre">
+                            <img src={logo} alt="logo" />
                         </div>
                         <form
                             onSubmit={onSubmitHandler}
-                            className="d-flex flex-column gap-3 personalBorder p-4"
+                            className="d-flex flex-column gap-3 personalBorder p-3"
                         >
                             <h2 className="text-white text-center">LOGIN</h2>
                             <input

@@ -1,0 +1,58 @@
+.dish-item {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.dish-item:last-child {
+    border-bottom: none;
+}
+
+.dish-image-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.dish-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.dish-item p {
+    word-break: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    max-width: 500px;
+}
+
+.btn-edit {
+    background-color: transparent;
+    border: 1px solid #ffc107;
+    color: #ffc107;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+    background-color: #ffc107;
+    color: white;
+    border: 1px solid #e4ab00;
+}
+
+.btn-delete {
+    background-color: transparent;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: #dc3545;
+    color: #fff;
+    border: 1px solid #c82333;
+}

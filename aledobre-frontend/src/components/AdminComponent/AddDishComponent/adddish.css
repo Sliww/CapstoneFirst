@@ -1,0 +1,16 @@
+.allergens-container {
+    padding: 10px;
+    border: 1px solid #971717;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+}
+
+.allergens-header:hover {
+    background-color: #f8f9fa;
+}
+
+.form-add-dish {
+    border: 1px solid #971717;
+    border-radius: 4px;
+}
+

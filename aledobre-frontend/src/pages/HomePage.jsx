@@ -1,13 +1,12 @@
-import { Navbar } from "../components/NavbarComponent/Navbar"
-import { Footer } from "../components/FooterComponent/Footer"
+import { NavAndFooterLayout } from '../components/Layouts/Navbar-Footer-Layout';
 import { HeroSection } from '../components/HeroSectionComponent/HeroSection' 
 
 export const HomePage = ()=>{
     return (
         <>
-            <Navbar/>
-            <HeroSection/>
-            <Footer/>
+            <NavAndFooterLayout>
+                <HeroSection/>
+            </NavAndFooterLayout>
         
         </>
     )
