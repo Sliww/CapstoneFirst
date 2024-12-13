@@ -1,0 +1,55 @@
+.dish-card {
+    transition: all 0.3s ease;
+    height: 100%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    padding: 10px;
+}
+
+.dish-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.dish-card.selected {
+    border-color: #28a745;
+    background-color: #f8fff8;
+}
+
+.dish-image {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.form-check {
+    padding: 0;
+    margin: 0;
+}
+
+.form-check-input {
+    margin-right: 10px;
+}
+
+.form-check-label {
+    width: 100%;
+    margin: 0;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+}
+
+.nav-tabs .nav-link.active {
+    color: #28a745;
+    border-color: #28a745;
+}
+
+.choice-section {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}

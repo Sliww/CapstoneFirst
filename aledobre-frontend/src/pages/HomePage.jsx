@@ -1,11 +1,11 @@
 import { NavAndFooterLayout } from '../components/Layouts/Navbar-Footer-Layout';
-import { HeroSection } from '../components/HeroSectionComponent/HeroSection' 
+import { Home } from '../components/HomePageComponent/home';
 
 export const HomePage = ()=>{
     return (
         <>
             <NavAndFooterLayout>
-                <HeroSection/>
+                <Home/>
             </NavAndFooterLayout>
         
         </>

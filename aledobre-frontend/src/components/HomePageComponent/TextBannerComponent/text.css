@@ -1,0 +1,132 @@
+.text-banner {
+    padding: 2rem;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+.text-banner-container {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    overflow: hidden;
+}
+
+.text-content {
+    width: 50%;
+    padding: 2rem;
+    text-align: left;
+    font-size: 1.5rem;
+    z-index: 2;
+    animation: slideInLeft 1.2s ease-out;
+}
+
+.image-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    background-image: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0) 60%,
+        #f8f9fa 100%
+    ), url('../../../assets/chef.jpg');
+    background-size: cover;
+    background-position: center;
+    animation: slideInRight 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.text-content h1,
+.text-content p {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.text-content h1 {
+    animation-delay: 0.3s;
+}
+
+.text-content p {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .text-content {
+        width: 100%;
+        padding-bottom: 50%;
+    }
+
+    .text-content .fs-1 {
+        font-size: 1.5rem !important;
+    }
+
+    .image-container {
+        width: 100%;
+        height: 50%;
+        top: auto;
+        bottom: 0;
+        background-image: linear-gradient(
+            to bottom,
+            #f8f9fa 0%,
+            rgba(0, 0, 0, 0) 40%
+        ), url('../../../assets/chef.jpg');
+        animation: slideInBottom 1.2s ease-out;
+    }
+}
+
+@keyframes slideInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

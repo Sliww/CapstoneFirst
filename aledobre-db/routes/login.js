@@ -34,7 +34,7 @@ login.post('/login', async (req, res, next) => {
             role: user.role,
             createdAt: user.createdAt
         }, process.env.JWT_SECRET, {
-            expiresIn: "15m"
+            expiresIn: "20m"
         });
 
         res.header("Authorization", token)

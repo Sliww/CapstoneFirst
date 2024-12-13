@@ -1,0 +1,37 @@
+.user-reservations-container {
+    padding: 2rem;
+}
+
+.reservation-card {
+    height: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.reservation-card:hover {
+    transform: translateY(-5px);
+}
+
+.reservation-card .card-header {
+    background-color: #f8f9fa;
+}
+
+.selected-dishes ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.selected-dishes li {
+    padding: 0.25rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.error-message {
+    color: #dc3545;
+    text-align: center;
+    padding: 2rem;
+}
+
+.badge {
+    font-size: 0.9rem;
+}

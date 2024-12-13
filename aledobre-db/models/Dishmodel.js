@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const DishSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'Il nome del piatto è obbligatorio.'],
+        required: [true, 'The dish name is required.'],
     },
     ingredients: {
         type: String,
-        required: [true, 'Gli ingredienti sono obbligatori.'],
+        required: [true, 'Ingredients are required.'],
     },
     allergens: {
         type: [String],
-        required: [true, 'Gli allergeni sono obbligatori.'],
+        required: [true, 'Allergens are required.'],
     },
     img: {
         type: String,
@@ -20,7 +20,7 @@ const DishSchema = new mongoose.Schema({
     category: {
         type: String,
         enum: ['Zuppa', 'Antipasto', 'Primo', 'Secondo', 'Dolce'],
-        required: [true, 'La categoria è obbligatoria.']
+        required: [true, 'The category is required.']
     }
 },
 {

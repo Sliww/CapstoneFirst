@@ -6,7 +6,7 @@ export const HeroSection = () => {
     return (
         <Container fluid className='background-tradition'>
             <Row>
-                <Col className='mt-5 pe-0 ps-0 pb-5'>
+                <Col className='mt-5 pe-0 ps-0'>
                     <header>
                         <div className='hero-background p-5 text-center'>
                             <div className='overlay'/>

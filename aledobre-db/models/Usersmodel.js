@@ -5,20 +5,20 @@ const bcrypt = require('bcrypt');
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'Il nome è obbligatorio.'],
-        minLength: [2, 'Il nome deve contenere almeno 2 caratteri.'],
-        maxLength: [20, 'Il nome non può superare i 20 caratteri.'],
+        required: [true, 'Name is required.'],
+        minLength: [2, 'The name must contain at least 2 characters.'],
+        maxLength: [20, 'The name cannot exceed 20 characters.'],
         trim: true,
-        match: [/^[A-Za-z\s]+$/, 'Il nome può contenere solo lettere e spazi.']
+        match: [/^[A-Za-z\s]+$/, 'The name can only contain letters and spaces.']
     },
 
     surname: {
         type: String,
-        required: [true, 'Il cognome è obbligatorio.'],
-        minLength: [2, 'Il cognome deve contenere almeno 2 caratteri.'],
-        maxLength: [20, 'Il cognome non può superare i 20 caratteri.'],
+        required: [true, 'Surname is required.'],
+        minLength: [2, 'The surname must contain at least 2 characters.'],
+        maxLength: [20, 'The surname cannot exceed 20 characters.'],
         trim: true,
-        match: [/^[A-Za-z\s]+$/, 'Il cognome può contenere solo lettere e spazi.']
+        match: [/^[A-Za-z\s]+$/, 'The surname can only contain letters and spaces.']
     },
 
     dob: {
@@ -28,27 +28,27 @@ const UserSchema = new mongoose.Schema({
 
     email: {
         type: String,
-        required: [true, 'L\'email è obbligatoria.'],
+        required: [true, 'Email is required.'],
         unique: true,
         trim: true,
-        match: [/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'L\'email non è valida.']
+        match: [/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'The email is not valid.']
     },
 
     telephone: {
         type: String,
-        required: [true, 'Il numero di telefono è obbligatorio.'],
+        required: [true, 'Telephone is required.'],
         unique: true,
         trim: true,
-        match: [/^[0-9]{10}$/, 'Il numero di telefono deve contenere esattamente 10 cifre.']
+        match: [/^[0-9]{10}$/, 'The telephone number must contain exactly 10 digits.']
     },
 
     password: {
         type: String,
-        required: [true, 'La password è obbligatoria.'],
-        minLength: [8, 'La password deve contenere almeno 8 caratteri.'],
+        required: [true, 'Password is required.'],
+        minLength: [8, 'The password must contain at least 8 characters.'],
         match: [
             /^(?=.*[A-Z])(?=.*[0-9])(?=.*[?!-_])[A-Za-z0-9?!-_]{8,}$/,
-            'La password deve contenere almeno 8 caratteri, di cui almeno 1 lettera maiuscola, 1 numero e 1 carattere speciale (?!-_).'
+            'The password must contain at least 8 characters, including at least 1 uppercase letter, 1 number, and 1 special character (?!-_).'
         ],
         trim: true
     },

@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 const verifyToken = require('../middleware/verifyToken');
 
 
-// GET ALL USERS
 users.get("/users", async (req, res, next) => {
     try {
         const users = await UserModel.find();
@@ -30,8 +29,6 @@ users.get("/users", async (req, res, next) => {
     }
 });
 
-
-// GET LOGGED USER PROFILE
 users.get('/users/me', verifyToken, async (req, res) => {
     try {
         const user = await UserModel.findById(req.user.id).select('-password');
@@ -46,14 +43,10 @@ users.get('/users/me', verifyToken, async (req, res) => {
             user: user
         });
     } catch (error) {
-        res.status(500).json({
-            message: "Errore server",
-            error: error.message
-        });
+        next(error);
     }
 });
 
-// CREATE USER
 users.post('/user/create', async (req, res, next) => {
     try {
         const newUser = new UserModel(req.body);
@@ -71,7 +64,6 @@ users.post('/user/create', async (req, res, next) => {
     }
 });
 
-// DELETE USER
 users.delete('/user/delete/:id', async (req, res, next) => {
     const { id } = req.params;
     try {
@@ -91,7 +83,6 @@ users.delete('/user/delete/:id', async (req, res, next) => {
     }
 });
 
-// UPDATE USER
 users.put('/user/update/:id', async (req, res, next) => {
     const { id } = req.params;
     const { name, surname, email, telephone, dob, password, isLazioResident } = req.body;

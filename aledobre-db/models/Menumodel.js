@@ -4,11 +4,11 @@ const MenuSchema = new mongoose.Schema({
     name: {
         type: String,
         enum: ['Full', 'Extended', 'Basic', 'Minimal'],
-        required: [true, 'Il tipo di menu è obbligatorio.']
+        required: [true, 'The menu type is required.']
     },
     description: {
         type: String,
-        required: [true, 'La descrizione del menu è obbligatoria.']
+        required: [true, 'The menu description is required.']
     },
     priceRanges: [{
         minPeople: { type: Number, required: true },

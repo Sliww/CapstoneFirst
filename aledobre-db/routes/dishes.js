@@ -3,7 +3,6 @@ const dishes = express.Router();
 const DishModel = require('../models/Dishmodel');
 const cloudStorage = require('../middleware/uploadOnCloudImg/cloudStorage')
 
-// GET ALL DISHES
 dishes.get("/dishes", async (req, res, next) => {
     try {
         const allDishes = await DishModel.find();
@@ -19,7 +18,6 @@ dishes.get("/dishes", async (req, res, next) => {
     }
 });
 
-// CREATE DISH WITH IMAGE
 dishes.post("/dishes/create", cloudStorage.single('img'), async (req, res, next) => {
     try {
         const dishData = req.body;
@@ -40,7 +38,6 @@ dishes.post("/dishes/create", cloudStorage.single('img'), async (req, res, next)
     }
 });
 
-// DELETE DISH
 dishes.delete("/dishes/delete/:id", async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -63,7 +60,6 @@ dishes.delete("/dishes/delete/:id", async (req, res, next) => {
     }
 });
 
-// PUT DISH
 dishes.put("/dishes/update/:id", cloudStorage.single('img'), async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -86,13 +82,13 @@ dishes.put("/dishes/update/:id", cloudStorage.single('img'), async (req, res, ne
         if (!updatedDish) {
             return res.status(404).json({
                 statusCode: 404,
-                message: "Piatto non trovato"
+                message: "Dish not found"
             });
         }
 
         res.status(200).json({
             statusCode: 200,
-            message: "Piatto aggiornato con successo",
+            message: "Dish updated successfully",
             updatedDish
         });
     } catch (error) {

@@ -3,7 +3,7 @@ header {
 }
 
 .hero-background {
-    background-image: url('../../assets/prv.jpg');
+    background-image: url('../../../assets/prv.jpg');
     height: 400px;
     background-size: cover;
     background-position: center;
