@@ -4,7 +4,7 @@ const initDB = require('./dbConnection');
 const cors = require('cors');
 require('dotenv').config();
 
-const PORT = 4012;
+const PORT = process.env.PORT || 4012;
 
 const server = express();
 
@@ -22,12 +22,7 @@ const manageErrorMessage = require('./utilities/catchErrorsMessage');
 
 
 server.use(express.json());
-server.use(cors({
-    origin: 'http://localhost:5173',
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+server.use(cors());
 
 // USE MIDDLEWARE
 server.use(requestTimeMiddleware);
