@@ -3,6 +3,7 @@ const users = express.Router();
 const UserModel = require('../models/Usersmodel');
 const bcrypt = require('bcrypt');
 const verifyToken = require('../middleware/verifyToken');
+const jwt = require('jsonwebtoken');
 
 
 users.get("/users", async (req, res, next) => {
@@ -123,6 +124,28 @@ users.put('/user/update/:id', async (req, res, next) => {
                 message: "User not found"
             });
         }
+
+        res.status(200).json({
+            statusCode: 200,
+            message: "User updated successfully",
+            user: updatedUser
+        });
+    } catch (error) {
+        next(error);
+    }
+});
+
+users.patch('/users/update', async (req, res, next) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+        const userId = decodedToken.id;
+
+        const updatedUser = await UserModel.findByIdAndUpdate(
+            userId,
+            { $set: req.body },
+            { new: true, runValidators: true }
+        );
 
         res.status(200).json({
             statusCode: 200,

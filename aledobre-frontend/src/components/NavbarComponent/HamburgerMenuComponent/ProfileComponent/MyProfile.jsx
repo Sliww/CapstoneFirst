@@ -1,6 +1,8 @@
 import './myprofile.css';
-import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Form } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import { ManageReservation } from './ManageReservationComponent/ManageReservation';
+import Swal from 'sweetalert2';
 
 export const MyProfile = () => {
     
@@ -16,18 +18,18 @@ export const MyProfile = () => {
 
     const fetchUserProfile = async () => {
         try {
-            const tokenString = localStorage.getItem('token');
-            if (!tokenString) {
-                console.error('Token non trovato nel localStorage');
+            const token = localStorage.getItem('token');
+            if (!token) {
+                console.error('Token not found');
                 return;
             }
 
-            const token = JSON.parse(tokenString);
+            const cleanToken = token.replace(/^"|"$/g, '');
             
             const response = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL_EPI}/users/me`, {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${token}`,
+                    'Authorization': `Bearer ${cleanToken}`,
                     'Content-Type': 'application/json'
                 },
                 credentials: 'include'
@@ -35,8 +37,6 @@ export const MyProfile = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log('Dati ricevuti:', data);
-                
                 const userData = data.user || data;
                 
                 setUserProfile({
@@ -49,10 +49,10 @@ export const MyProfile = () => {
                     password: ''
                 });
             } else {
-                console.error('Errore nella risposta:', response.status);
+                console.error('Error', response.status);
             }
         } catch (error) {
-            console.error('Errore nella richiesta:', error);
+            console.error('Error', error);
         }
     };
 
@@ -64,23 +64,68 @@ export const MyProfile = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
+            if (!token) {
+                await Swal.fire({
+                    title: 'Errore',
+                    text: 'Token non trovato. Effettua nuovamente il login.',
+                    icon: 'error',
+                    confirmButtonColor: '#dc3545'
+                });
+                return;
+            }
+
+            const cleanToken = token.replace(/^"|"$/g, '');
+
+            const updatedProfile = Object.fromEntries(
+                Object.entries(userProfile).filter(([_, value]) => 
+                    value !== '' && value !== undefined
+                )
+            );
+
             const response = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL_EPI}/users/update`, {
-                method: 'PUT',
+                method: 'PATCH',
                 headers: {
-                    'Authorization': `Bearer ${token}`,
+                    'Authorization': `Bearer ${cleanToken}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(userProfile)
+                body: JSON.stringify(updatedProfile)
             });
 
             if (response.ok) {
-                alert('Profilo aggiornato con successo!');
+                await Swal.fire({
+                    title: 'Successo!',
+                    text: 'Profilo aggiornato con successo',
+                    icon: 'success',
+                    confirmButtonColor: '#28a745'
+                });
+                fetchUserProfile();
             } else {
-                alert('Errore nell\'aggiornamento del profilo');
+                const errorData = await response.json();
+                if (response.status === 401) {
+                    localStorage.removeItem('token');
+                    await Swal.fire({
+                        title: 'Sessione Scaduta',
+                        text: 'Effettua nuovamente il login',
+                        icon: 'warning',
+                        confirmButtonColor: '#ffc107'
+                    });
+                } else {
+                    await Swal.fire({
+                        title: 'Errore',
+                        text: errorData.message || 'Errore nell\'aggiornamento del profilo',
+                        icon: 'error',
+                        confirmButtonColor: '#dc3545'
+                    });
+                }
             }
         } catch (error) {
-            console.error('Errore nella richiesta:', error);
-            alert('Errore nella richiesta di aggiornamento');
+            console.error('Errore dettagliato:', error);
+            await Swal.fire({
+                title: 'Errore di Connessione',
+                text: 'Errore nella connessione al server. Riprova più tardi.',
+                icon: 'error',
+                confirmButtonColor: '#dc3545'
+            });
         }
     };
 
@@ -165,15 +210,16 @@ export const MyProfile = () => {
                                             onChange={handleChange} 
                                         />
                                     </Form.Group>
-                                    <Button type="submit" className='btns-common mt-2'>
+                                    <button type="submit" className='btns-common mt-2'>
                                         Salva Modifiche
-                                    </Button>
+                                    </button>
                                 </Form>
                             </div>
                         </Card.Body>
                     </Card>
                 </Col>
             </Row>
+            <ManageReservation />
         </Container>
     );
 };

@@ -15,6 +15,7 @@ import { ReservationPage } from './pages/ReservationPage'
 import { UsersReservations } from './components/AdminComponent/ReservationsListComponent/UsersReservations'
 import { AdminProtectedRoutes } from './middlewares/ProtectedRoutes'
 import { AuthProvider } from './context/AuthContextComp'
+import { Disclaimer } from './components/Disclaimer/DisclaimerComp'
 import AnimatedPage from './components/AnimatedPageComponent/AnimatedPage'
 
 const AnimatedRoutes = () => {
@@ -82,6 +83,7 @@ const App = () => {
     return (
         <AuthProvider>
             <BrowserRouter>
+                <Disclaimer />
                 <AnimatedRoutes />
             </BrowserRouter>
         </AuthProvider>
