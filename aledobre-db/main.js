@@ -19,21 +19,8 @@ const reservationRoute = require('./routes/reservation');
 const requestTimeMiddleware = require('./middleware/requestTime');
 const manageErrorMessage = require('./utilities/catchErrorsMessage'); 
 
-
-
-
 server.use(express.json());
 server.use(cors());
-
-// USE MIDDLEWARE
-server.use(requestTimeMiddleware);
-
-server.use('/', usersRoute);
-server.use('/', dishesRoute);
-server.use('/', loginRoute);
-server.use('/', reservationRoute);
-
-server.use(manageErrorMessage);
 
 server.use(session({
     secret: process.env.SESSION_SECRET || 'default_secret',
@@ -50,6 +37,16 @@ server.use(session({
         maxAge: 24 * 60 * 60 * 1000
     }
 }));
+
+// USE MIDDLEWARE
+server.use(requestTimeMiddleware);
+
+server.use('/', usersRoute);
+server.use('/', dishesRoute);
+server.use('/', loginRoute);
+server.use('/', reservationRoute);
+
+server.use(manageErrorMessage);
 
 initDB();
 
