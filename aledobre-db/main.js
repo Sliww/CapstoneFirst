@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const initDB = require('./dbConnection');
 const cors = require('cors');
+const MongoStore = require('connect-mongo');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 4012;
@@ -34,10 +35,26 @@ server.use('/', reservationRoute);
 
 server.use(manageErrorMessage);
 
-server.use(session());
+server.use(session({
+    secret: process.env.SESSION_SECRET || 'default_secret',
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.DB_URI,
+        ttl: 24 * 60 * 60
+    }),
+    cookie: {
+        secure: process.env.NODE_ENV === 'production',
+        httpOnly: true,
+        sameSite: 'lax',
+        maxAge: 24 * 60 * 60 * 1000
+    }
+}));
 
 initDB();
 
-server.listen(PORT, ()=> console.log(`Server is up and running on PORT: ${PORT}`));
+server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is up and running on PORT: ${PORT}`);
+});
 
 
